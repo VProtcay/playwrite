@@ -1,14 +1,32 @@
 {
-  "name": "jsaqa-live-7",
+  "name": "cypress2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dash": "cypress run --record --key e12bd371-7af3-4e67-b0cd-a11ad6d50db4",
+    "bookSpec": "cypress run --spec 'cypress/integration/booking/booking.spec.js' --record --key e12bd371-7af3-4e67-b0cd-a11ad6d50db4",
+    "createSucFilm": "cypress run --spec 'cypress/integration/createFilm/createSuccesfull.spec.js' --record --key e12bd371-7af3-4e67-b0cd-a11ad6d50db4",
+    "createFalseFilm": "cypress run --spec 'cypress/integration/createFilm/createFilmFalse.spec.js' --record --key e12bd371-7af3-4e67-b0cd-a11ad6d50db4",
+    "emptySpec": "cypress run --spec 'cypress/integration/booking/ticketToBook.spec.js' --record --key e12bd371-7af3-4e67-b0cd-a11ad6d50db4",
+    "parallChrome": "npm run bookSpec -- --browser chrome --group Spec1 --ci-build-id 5 & npm run createSucFilm -- --browser chrome --group Spec2 --ci-build-id 5 & npm run createFalseFilm -- --browser chrome --group Spec3 --ci-build-id 5 & npm run emptySpec -- --browser chrome --group Spec4 --ci-build-id 5",
+    "parallElectron": "npm run bookSpec -- --group Spec1 --ci-build-id 5 & npm run createSucFilm -- --group Spec2 --ci-build-id 5 & npm run createFalseFilm -- --group Spec3 --ci-build-id 5 & npm run emptySpec -- --group Spec4 --ci-build-id 5",
+    "parallFF": "npm run bookSpec -- --browser firefox --group Spec1 --ci-build-id 5 & npm run createSucFilm -- --browser firefox --group Spec2 --ci-build-id 5 & npm run createFalseFilm -- --browser firefox --group Spec3 --ci-build-id 5 & npm run emptySpec -- --browser firefox --group Spec4 --ci-build-id 5",
+    "parallFolder": "cypress run --spec 'cypress/integration/createFilm/**/*' --record --key e12bd371-7af3-4e67-b0cd-a11ad6d50db4 --browser chrome --group Sp1 --ci-build-id 6 & cypress run --spec 'cypress/integration/booking/**/*' --record --key e12bd371-7af3-4e67-b0cd-a11ad6d50db4 --browser firefox --group Sp2 --ci-build-id 6",
+    "parallFolderWithSpec": "npm run bookSpec -- --browser chrome --group Sp1 --ci-build-id 4 & npm run emptySpec -- --browser chrome --group Sp1 --ci-build-id 4 & npm run createSucFilm -- --browser firefox --group Sp2 --ci-build-id 4 & npm run createFalseFilm -- --browser firefox --group Sp2 --ci-build-id 4",
+    "test": "test"
   },
-  "author": "",
+  "author": "AM",
   "license": "ISC",
+  "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.1.0",
+    "chai": "^4.3.4",
+    "cypress": "^9.0.0",
+    "cypress-file-upload": "^5.0.8",
+    "eslint": "^8.2.0",
+    "prettier": "^2.4.1"
+  },
   "dependencies": {
-    "cypress": "^9.0.0"
+    "cypress-drag-drop": "^1.1.1"
   }
 }
