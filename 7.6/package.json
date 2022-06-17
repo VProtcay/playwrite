@@ -1,14 +1,21 @@
 {
-  "name": "cypress-test",
+  "name": "cypres1",
   "version": "1.0.0",
-  "description": "first tests with Cypress",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress run -b chrome --headed",
+    "headTestChrome": "npx cypress run -b chrome --headed -C cypress.env.json",
+    "headlessTestChrome": "npx cypress run -b chrome",
+    "headTestElectron": "npx cypress run -b electron --headed -C cypress.json",
+    "headlessTestElectron": "npx cypress run -b electron"
   },
-  "author": "OM",
+  "author": "AM",
   "license": "ISC",
-  "dependencies": {
-    "cypress": "^8.3.0"
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "cypress": "^9.0.0",
+    "eslint": "^8.2.0",
+    "prettier": "^2.4.1"
   }
 }
